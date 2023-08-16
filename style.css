@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Work+Sans:ital,wght@1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* common styles */
-/* using *{ sets the styles for the whole document */
+/* using *{ sets the styles for the whole document. Called a universal selector */
 *{
     margin: 0;
     padding: 0;
@@ -131,4 +131,35 @@ html{
   );
 }
 /* End of Banner */
+/* Slideshow */
+
+/* set up the size of the container div with the class slideshow */
+.slideshow{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* use z-index to place the images in the background since they displayed in front of the other elements on the page */
+    z-index: -1;
+}
+/* make the images visible by giving them width and height */
+.slideshow div{
+    width: 100%;
+    height: 100%;
+    /* the images default to display stacked vertically--set the position to absolute to make them stack on top of each other */
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* hide all images by default and then will display them using opacity--use a new class in the css file where opacity will be value 1 then add this new class in order from javascript*/
+    opacity: 0;
+    transition: opacity 5s;
+}
+
+/* after using the short circuit in the javascript file, we need to select the div element with the class change, and set the opacity to 1, which will display the first image.*/
+.slideshow div.change{
+    opacity: 1;
+}
+/* End of Slideshow */
 /* End of Section-1 */
