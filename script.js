@@ -25,7 +25,7 @@ const divs = document.querySelectorAll('.slideshow div')
 let a = 1
 // 1-- Next create a function called slideshow and use the function setInterval which allows the function to be run over and over at a specified interval. It takes two arguments, first the callback function that will be run at certain intervals and second the interval itself expressed in milliseconds.
 
-// after steps 1 through 4 are completed, and all 5 images show up an error message occurs and the slideshow stops working because once the setInterval function reaches the last div, the javascript engine cannot find another sibling, it doesnt exist..
+// after steps 1 through 4 are completed, and all 5 images show up an error message occurs because nextElementSibling returns null when it reaches the last div and tries to return the div after the last one and the slideshow stops working because once the setInterval function reaches the last div, the javascript engine cannot find another sibling, and the error message is: Cannot read property 'classlist' of null, it doesnt exist..
 const slideshow = () =>{
     setInterval(() =>{
         //6--  increment the counter by one to track the current iterations number of runs.
@@ -40,7 +40,7 @@ const slideshow = () =>{
             // 4-- then add the class change to the next element
             div.nextElementSibling.classList.add('change')
         }else{
-            // 7--if a is greater than the number of divs, select the first div and add the change class back to it
+            // 7--if a is greater than the number of divs, select the first div and add the change class back to it.nextElementSibling returns a node list of the items that match the search, in this case, all the divs in the slideshow div. These divs in this node list can be accessed using standard array notation. The node list is not an array so the array methods wont work with it. To convert to an array use Array.from(nodeList).
             divs[0].classList.add('change')
             // 8-- change the counter back to 1.
             a=1
